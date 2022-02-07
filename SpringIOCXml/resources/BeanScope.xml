@@ -10,8 +10,11 @@
 
 	<!-- singleton scope is the default -->
 	<bean id="singletonDefault" class="com.main.beanscope.SingletonBean" />
+	
+	
 	<!-- the following is equivalent, though redundant (singleton scope is the default) -->
 	<bean id="singletonScope" class="com.main.beanscope.SingletonBean" scope="singleton" />
+
 
 	<!-- prototype scope -->
 	<bean id="prototypeScope" class="com.main.beanscope.PrototypeBean" scope="prototype" />

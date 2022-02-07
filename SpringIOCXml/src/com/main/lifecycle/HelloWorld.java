@@ -4,6 +4,7 @@ public class HelloWorld {
 	private String message;
 
 	public void setMessage(String message) {
+		System.out.println("Set Message : ");
 		this.message = message;
 	}
 

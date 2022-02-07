@@ -13,6 +13,14 @@
 
 	<!-- more bean definitions for services go here -->
 	<bean id="accountDao" class="com.main.dao.SqlMapAccountDao">
+		<property name="accaountlist">
+			<list>
+				<value>siva</value>
+				<value>pavan</value>
+				<value>sai</value>
+				<value>karirm</value>
+			</list>
+		</property>
 		<!-- additional collaborators and configuration for this bean go here -->
 	</bean>
 
@@ -54,15 +62,11 @@
 		<property name="item" value="Seettitngtime" />
 	</bean>
 
-	<!-- Bean Life Cycle  -->
+	<!-- Bean Life Cycle -->
 
 	<bean id="helloWorld" class="com.main.lifecycle.HelloWorld" init-method="init" destroy-method="destroy">
 		<property name="message" value="Hello World!" />
 	</bean>
-
-
-		
-		
 
 
 </beans>

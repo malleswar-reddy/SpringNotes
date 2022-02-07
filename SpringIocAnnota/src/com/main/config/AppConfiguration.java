@@ -2,6 +2,7 @@ package com.main.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.main.constructordi.Transmission;
 import com.main.dao.SqlMapAccountDao;
@@ -18,6 +19,7 @@ public class AppConfiguration {
 	}
 
 	@Bean(name = "sqlMapItemDao")
+	@Scope(value = "prototype")
 	public SqlMapItemDao sqlMapItemDao() {
 		return new SqlMapItemDao();
 	}
