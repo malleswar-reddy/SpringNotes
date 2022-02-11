@@ -39,15 +39,17 @@ public class EmpDao {
 	}
 
 	public List<Emp> getEmployees() {
-		return template.query("select * from EMP", new RowMapper<Emp>() {
-			public Emp mapRow(ResultSet rs, int row) throws SQLException {
-				Emp e = new Emp();
-				e.setId(rs.getInt(1));
-				e.setName(rs.getString(2));
-				e.setSalary(rs.getFloat(3));
-				e.setDesignation(rs.getString(4));
-				return e;
-			}
-		});
+		return template.query("select * from EMP",
+
+				new RowMapper<Emp>() {
+					public Emp mapRow(ResultSet rs, int row) throws SQLException {
+						Emp e = new Emp();
+						e.setId(rs.getInt(1));
+						e.setName(rs.getString(2));
+						e.setSalary(rs.getFloat(3));
+						e.setDesignation(rs.getString(4));
+						return e;
+					}
+				});
 	}
 }

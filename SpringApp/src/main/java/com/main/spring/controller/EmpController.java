@@ -4,8 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,7 +23,8 @@ public class EmpController {
 	 * It displays a form to input data, here "command" is a reserved request
 	 * attribute which is used to display object data into form
 	 */
-	@RequestMapping("/empform")
+	@RequestMapping(value  = "/empform", method = RequestMethod.GET)
+	//@GetMapping("/empform")
 	public String showform(Model m) {
 		m.addAttribute("command", new Emp());
 		return "empform";
@@ -33,6 +36,7 @@ public class EmpController {
 	 * request is GET
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	//@PostMapping("/save")
 	public String save(@ModelAttribute("emp") Emp emp) {
 		dao.save(emp);
 		return "redirect:/viewemp";// will redirect to viewemp request mapping
@@ -40,6 +44,7 @@ public class EmpController {
 
 	/* It provides list of employees in model object */
 	@RequestMapping("/viewemp")
+	//@GetMapping("/viewemp")
 	public String viewemp(Model m) {
 		List<Emp> list = dao.getEmployees();
 		m.addAttribute("list", list);
